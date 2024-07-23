@@ -135,14 +135,30 @@ fbq('init', '{{settings.id_pixel}}');
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-    if (typeof adBlockDetector !== 'undefined') {
-        document.getElementById('adBlockMessage').style.display = 'block';
+    // Verifica se o elemento footer está presente
+    var footerElement = document.querySelector('.footer');
+
+    if (footerElement) {
+        // Cria um elemento script para carregar o Facebook Pixel de forma assíncrona
+        var fbScript = document.createElement('script');
+        fbScript.async = true;
+        fbScript.src = 'https://connect.facebook.net/en_US/fbevents.js';
+
+        // Adiciona o script ao final do body para garantir que seja carregado
+        document.body.appendChild(fbScript);
+
+        // Função para inicializar o Facebook Pixel
+        function initializeFacebookPixel() {
+            window.fbq('init', '849237046336907');
+            window.fbq('track', 'ViewContent');
+            // Opcional: Redirecionar o usuário após o rastreamento
+            // window.location.href = 'URL_DO_SEU_PRODUTO';
+        }
+
+        // Inicia o Facebook Pixel após um curto atraso para garantir que seja carregado
+        setTimeout(initializeFacebookPixel, 2000); // Aguarda 2 segundos antes de inicializar
     }
 });
-
-function redirecionarParaInstrucoes() {
-    window.location.href = 'https://www.meusite.com/instrucoes-adblock';
-}
 </script>
    
     
@@ -151,27 +167,7 @@ function redirecionarParaInstrucoes() {
 
 
 <body>
-<div id="adBlockMessage" style="display: none; text-align: center;">
-    <h2>Opa!</h2>
-    <p>Parece que você está usando um bloqueador de anúncios. Para melhorar sua experiência neste site, por favor, considere desativar o AdBlock.</p>
-    <button onclick="redirecionarParaInstrucoes()">Ver instruções para desativar o AdBlock</button>
-</div>
 
-    <script>
-function verificarAdBlockDesativado() {
-    setTimeout(function() {
-        // Verifica se o AdBlock ainda está ativo
-        if (typeof adBlockDetector !== 'undefined') {
-            alert('Por favor, desative o AdBlock para acessar o conteúdo.');
-        } else {
-            document.getElementById('adBlockMessage').style.display = 'none';
-            document.getElementById('content').style.display = 'block';
-        }
-    }, 1000); // Verifica novamente após 1 segundo
-}
-
-verificarAdBlockDesativado();
-</script>
   
 
   <!-- Google Tag Manager (noscript) -->
