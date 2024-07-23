@@ -132,35 +132,6 @@ fbq('init', '{{settings.id_pixel}}');
     <link rel="stylesheet" href="style.css" />
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <title>Barber Trio - A Melhor Barber!</title>
-
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-    // Verifica se o elemento footer está presente
-    var footerElement = document.querySelector('.footer');
-
-    if (footerElement) {
-        // Cria um elemento script para carregar o Facebook Pixel de forma assíncrona
-        var fbScript = document.createElement('script');
-        fbScript.async = true;
-        fbScript.src = 'https://connect.facebook.net/en_US/fbevents.js';
-
-        // Adiciona o script ao final do body para garantir que seja carregado
-        document.body.appendChild(fbScript);
-
-        // Função para inicializar o Facebook Pixel
-        function initializeFacebookPixel() {
-            window.fbq('init', '849237046336907');
-            window.fbq('track', 'ViewContent');
-            // Opcional: Redirecionar o usuário após o rastreamento
-            // window.location.href = 'URL_DO_SEU_PRODUTO';
-        }
-
-        // Inicia o Facebook Pixel após um curto atraso para garantir que seja carregado
-        setTimeout(initializeFacebookPixel, 2000); // Aguarda 2 segundos antes de inicializar
-    }
-});
-</script>
-   
     
   
 </head>
@@ -355,6 +326,42 @@ document.addEventListener('DOMContentLoaded', function() {
         </div>
         <p>copyright 2024 | Dev LojaTrio - todos os direitos reservados.</p>
     </footer>
+
+    <script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Seleciona o elemento footer a ser observado
+    var footerElement = document.querySelector('.footer');
+
+    if (footerElement) {
+        // Cria um observador de interseção
+        var observer = new IntersectionObserver(function(entries) {
+            // Verifica se o footer está visível na viewport
+            if (entries[0].isIntersecting) {
+                // Rastreamento do Facebook Pixel
+                !function(f,b,e,v,n,t,s)
+                {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+                n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+                if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+                n.queue=[];t=b.createElement(e);t.async=!0;
+                t.src=v;s=b.getElementsByTagName(e)[0];
+                s.parentNode.insertBefore(t,s)}(window, document,'script',
+                'https://connect.facebook.net/en_US/fbevents.js');
+                fbq('init', '849237046336907');
+                fbq('track', 'ViewContent');
+
+                // Opcional: Redirecionar o usuário após o rastreamento
+                // window.location.href = 'URL_DO_SEU_PRODUTO';
+
+                // Remove o observador após o rastreamento
+                observer.unobserve(footerElement);
+            }
+        });
+
+        // Inicia a observação do footer
+        observer.observe(footerElement);
+    }
+});
+</script>
    
 
 
