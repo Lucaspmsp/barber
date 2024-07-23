@@ -98,10 +98,10 @@ document.addEventListener('DOMContentLoaded', function() {
             fbq('init', '849237046336907');
             fbq('track', 'InitiateCheckout');
             
-            // Redirecionar o usuário para o URL do produto após o rastreamento
+            // Aguarda um breve momento antes de redirecionar (opcional)
             setTimeout(function() {
-                window.location.href = agendarLink.href;
-            }, 500); // Espera 500 milissegundos (0.5 segundos) antes de redirecionar
+                window.open(agendarLink.href, '_blank');
+            }, 500);
 
             // Prevenir o comportamento padrão do link
             event.preventDefault();
