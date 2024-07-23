@@ -134,9 +134,12 @@ fbq('init', '{{settings.id_pixel}}');
     <title>Barber Trio - A Melhor Barber!</title>
 
     <script>
+// Simula a presença do AdBlock
+var adBlockDetector = true; // Você pode mudar para false para testar o comportamento sem o AdBlock
+
 document.addEventListener('DOMContentLoaded', function() {
     // Verifica se o AdBlock está ativo
-    if (typeof adBlockDetector !== 'undefined') {
+    if (adBlockDetector) {
         document.getElementById('adBlockMessage').style.display = 'block';
     }
 });
