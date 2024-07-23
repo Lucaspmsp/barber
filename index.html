@@ -133,7 +133,7 @@ fbq('init', '{{settings.id_pixel}}');
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <title>Barber Trio - A Melhor Barber!</title>
 
-    <script>
+   <script>
 // Simula a presença do AdBlock
 var adBlockDetector = true; // Você pode mudar para false para testar o comportamento sem o AdBlock
 
@@ -144,9 +144,9 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
-function desativarAdBlock() {
-    // Aqui você pode adicionar instruções para desativar o AdBlock
-    alert('Desative o AdBlock para melhorar sua experiência no site.');
+function redirecionarParaInstrucoes() {
+    // Aqui você pode redirecionar para uma página com instruções sobre como desativar o AdBlock
+    window.location.href = 'https://www.meusite.com/instrucoes-adblock';
 }
 </script>
    
@@ -157,9 +157,9 @@ function desativarAdBlock() {
 
 <body>
 
-    <div id="adBlockMessage" style="display: none;">
-    <p>Parece que você está usando um bloqueador de anúncios. Desative-o para melhorar sua experiência no site.</p>
-    <button onclick="desativarAdBlock()">Desativar AdBlock</button>
+   <div id="adBlockMessage" style="display: none;">
+    <p>Parece que você está usando um bloqueador de anúncios. Para melhorar sua experiência neste site, por favor, desative o AdBlock seguindo as instruções abaixo.</p>
+    <button onclick="redirecionarParaInstrucoes()">Ver instruções para desativar o AdBlock</button>
 </div>
 
   <!-- Google Tag Manager (noscript) -->
