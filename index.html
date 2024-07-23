@@ -20,28 +20,6 @@
             z-index: 9999;
         }
     </style>
-</head>
-<body>
-    <div id="adblock-message">
-        <h1>Por favor, desative seu Adblocker</h1>
-        <p>Detectamos que você está usando um Adblocker. Por favor, desative-o para continuar navegando em nosso site.</p>
-    </div>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            var adblockTest = document.createElement('div');
-            adblockTest.innerHTML = '&nbsp;';
-            adblockTest.className = 'adsbox';
-            document.body.appendChild(adblockTest);
-
-            window.setTimeout(function() {
-                if (adblockTest.offsetHeight === 0) {
-                    document.getElementById('adblock-message').style.display = 'block';
-                }
-                adblockTest.remove();
-            }, 100);
-        });
-    </script>
 
 <!-- Google Tag Manager -->
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -70,6 +48,27 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 
 <body>
+
+    <div id="adblock-message">
+        <h1>Por favor, desative seu Adblocker</h1>
+        <p>Detectamos que você está usando um Adblocker. Por favor, desative-o para continuar navegando em nosso site.</p>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var adblockTest = document.createElement('div');
+            adblockTest.innerHTML = '&nbsp;';
+            adblockTest.className = 'adsbox';
+            document.body.appendChild(adblockTest);
+
+            window.setTimeout(function() {
+                if (adblockTest.offsetHeight === 0) {
+                    document.getElementById('adblock-message').style.display = 'block';
+                }
+                adblockTest.remove();
+            }, 100);
+        });
+    </script>
   <!-- Google Tag Manager (noscript) -->
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KFPDMHC"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
