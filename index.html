@@ -132,6 +132,15 @@ fbq('init', '{{settings.id_pixel}}');
     <link rel="stylesheet" href="style.css" />
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <title>Barber Trio - A Melhor Barber!</title>
+
+    <script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Verifica se o AdBlock está ativo
+    if (typeof adBlockDetector !== 'undefined') {
+        document.getElementById('adBlockMessage').style.display = 'block';
+    }
+});
+</script>
    
     
   
@@ -139,6 +148,10 @@ fbq('init', '{{settings.id_pixel}}');
 
 
 <body>
+
+    <div id="adBlockMessage" style="display: none;">
+    <p>Parece que você está usando um bloqueador de anúncios. Por favor, desative-o para continuar navegando neste site.</p>
+</div>
 
   <!-- Google Tag Manager (noscript) -->
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KFPDMHC"
