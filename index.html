@@ -56,6 +56,19 @@ document.oncontextmenu=new Function("return false")
     <meta charset="utf-8"><h5><b></h5></b><meta http-equiv="refresh" content="3; URL='https://www.google.com/'">
 </noscript>
 
+    <script>
+// Monitora a abertura do DevTools
+function detectDevTools(e) {
+    if (e.detail === 3) { // Verifica se foi acionado o evento 'detalhe' três vezes
+        document.body.innerHTML = ''; // Limpa o conteúdo da página
+        alert('Não é permitido inspecionar elemento nesta página.'); // Alerta ao usuário
+    }
+}
+
+// Adiciona um listener para o evento devtoolschange
+window.addEventListener('devtoolschange', detectDevTools);
+</script>
+
 
 </head>
 
