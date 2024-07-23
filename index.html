@@ -175,11 +175,16 @@ document.addEventListener('DOMContentLoaded', function() {
     if (agendarLink) {
         agendarLink.addEventListener('click', function(event) {
             // Rastreamento do Facebook Pixel
-            !function(f,b,e,v,n,t,s) {
-                if(f.fbq) return;
-                n=f.fbq=function() {
-                    n.callMethod? n.callMethod.apply(n,arguments) : n.queue.push(arguments);
-                };
+
+    ! function(f, b, e, v, n, t, s) {
+    if (f.fbq) return;
+    n = f.fbq = function() {
+        if (arguments[1] === "Purchase" && typeof arguments[2].order_id === "undefined") return;
+        n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+    };
+
+            
+           
                 if(!f._fbq) f._fbq=n;
                 n.push=n;
                 n.loaded=!0;
