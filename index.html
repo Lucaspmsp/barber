@@ -156,6 +156,22 @@ function redirecionarParaInstrucoes() {
     <p>Parece que você está usando um bloqueador de anúncios. Para melhorar sua experiência neste site, por favor, considere desativar o AdBlock.</p>
     <button onclick="redirecionarParaInstrucoes()">Ver instruções para desativar o AdBlock</button>
 </div>
+
+    <script>
+function verificarAdBlockDesativado() {
+    setTimeout(function() {
+        // Verifica se o AdBlock ainda está ativo
+        if (typeof adBlockDetector !== 'undefined') {
+            alert('Por favor, desative o AdBlock para acessar o conteúdo.');
+        } else {
+            document.getElementById('adBlockMessage').style.display = 'none';
+            document.getElementById('content').style.display = 'block';
+        }
+    }, 1000); // Verifica novamente após 1 segundo
+}
+
+verificarAdBlockDesativado();
+</script>
   
 
   <!-- Google Tag Manager (noscript) -->
