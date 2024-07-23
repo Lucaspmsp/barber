@@ -134,18 +134,17 @@ fbq('init', '{{settings.id_pixel}}');
     <title>Barber Trio - A Melhor Barber!</title>
 
    <script>
-// Simula a presença do AdBlock
-var adBlockDetector = true; // Você pode mudar para false para testar o comportamento sem o AdBlock
-
 document.addEventListener('DOMContentLoaded', function() {
-    // Verifica se o AdBlock está ativo
-    if (adBlockDetector) {
+    if (typeof adBlockDetector !== 'undefined') {
         document.getElementById('adBlockMessage').style.display = 'block';
+        document.getElementById('content').style.display = 'none';
+    } else {
+        document.getElementById('adBlockMessage').style.display = 'none';
+        document.getElementById('content').style.display = 'block';
     }
 });
 
 function redirecionarParaInstrucoes() {
-    // Aqui você pode redirecionar para uma página com instruções sobre como desativar o AdBlock
     window.location.href = 'https://www.meusite.com/instrucoes-adblock';
 }
 </script>
@@ -158,8 +157,14 @@ function redirecionarParaInstrucoes() {
 <body>
 
    <div id="adBlockMessage" style="display: none;">
-    <p>Parece que você está usando um bloqueador de anúncios. Para melhorar sua experiência neste site, por favor, desative o AdBlock seguindo as instruções abaixo.</p>
+    <p>Parece que você está usando um bloqueador de anúncios. Para acessar este conteúdo, por favor, desative o AdBlock seguindo as instruções abaixo.</p>
     <button onclick="redirecionarParaInstrucoes()">Ver instruções para desativar o AdBlock</button>
+</div>
+
+<!-- Conteúdo do site -->
+<div id="content" style="display: none;">
+    <h1>Seja bem-vindo ao meu site!</h1>
+    <p>Conteúdo do site aqui...</p>
 </div>
 
   <!-- Google Tag Manager (noscript) -->
