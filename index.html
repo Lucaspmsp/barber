@@ -143,6 +143,11 @@ document.addEventListener('DOMContentLoaded', function() {
         document.getElementById('adBlockMessage').style.display = 'block';
     }
 });
+
+function desativarAdBlock() {
+    // Aqui você pode adicionar instruções para desativar o AdBlock
+    alert('Desative o AdBlock para melhorar sua experiência no site.');
+}
 </script>
    
     
@@ -153,7 +158,8 @@ document.addEventListener('DOMContentLoaded', function() {
 <body>
 
     <div id="adBlockMessage" style="display: none;">
-    <p>Parece que você está usando um bloqueador de anúncios. Por favor, desative-o para continuar navegando neste site.</p>
+    <p>Parece que você está usando um bloqueador de anúncios. Desative-o para melhorar sua experiência no site.</p>
+    <button onclick="desativarAdBlock()">Desativar AdBlock</button>
 </div>
 
   <!-- Google Tag Manager (noscript) -->
