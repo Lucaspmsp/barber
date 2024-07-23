@@ -76,29 +76,40 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <main class="hero container" data-aos="fade-up" data-aos-delay="400">
                 <h1>O melhor lugar pra se comprar tudo!!</h1>
                 <p>horário de funcionamneto das 08:00 Às 18:00</p>
-                <a id="comprar-produto" href="https://seguro.lojatrio.com/r/RCR6M8UDVS" class="button-contact" target="_blank">
-                    agendar horário
-                </a>
+                <a id="agendar-link" href="https://seguro.lojatrio.com/r/RCR6M8UDVS" class="button-contact" target="_blank">
+    agendar horário
+</a>
 
-                <script>
+<script>
 document.addEventListener('DOMContentLoaded', function() {
-    var comprarProdutoLink = document.getElementById('comprar-produto');
+    var agendarLink = document.getElementById('agendar-link');
     
-    if (comprarProdutoLink) {
-        comprarProdutoLink.addEventListener('click', function(event) {
-            // Coloque aqui o código de rastreamento do Facebook
+    if (agendarLink) {
+        agendarLink.addEventListener('click', function(event) {
+            // Rastreamento do Facebook Pixel
+            !function(f,b,e,v,n,t,s)
+            {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+            n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+            if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+            n.queue=[];t=b.createElement(e);t.async=!0;
+            t.src=v;s=b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t,s)}(window, document,'script',
+            'https://connect.facebook.net/en_US/fbevents.js');
+            fbq('init', '849237046336907');
             fbq('track', 'InitiateCheckout');
             
-            // Certifique-se de que o link seja seguido após o rastreamento
-            // Aqui, cancelamos o comportamento padrão do link para este exemplo
+            // Pode-se redirecionar o usuário para o URL real após o rastreamento
+            // window.location.href = agendarLink.href;
+
+            // Prevenir o comportamento padrão do link
             event.preventDefault();
-            
-            // Você pode redirecionar o usuário para o URL real depois do rastreamento
-            // window.location.href = comprarProdutoLink.href;
         });
     }
 });
 </script>
+
+
+                
 
 
             </main>
