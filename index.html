@@ -303,6 +303,71 @@ document.addEventListener('DOMContentLoaded', function() {
 <a id="agendar-link" href="https://seguro.lojatrio.com/r/RCR6M8UDVS" class="button-contact" target="_blank">
     agendar horário
 </a>
+
+
+
+
+    <main class="hero container" data-aos="fade-up" data-aos-delay="400">
+                <h1>O melhor lugar pra se comprar tudo!!</h1>
+                <p>horário de funcionamneto das 08:00 Às 18:00</p>
+                
+
+<a id="agendar-link" href="https://seguro.lojatrio.com/r/RCR6M8UDVS" class="button-contact" target="_blank">
+    agendar horário
+</a>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    var agendarLink = document.getElementById('agendar-link');
+    
+    if (agendarLink) {
+        agendarLink.addEventListener('click', function(event) {
+            // Rastreamento do Facebook Pixel
+
+    ! function(f, b, e, v, n, t, s) {
+    if (f.fbq) return;
+    n = f.fbq = function() {
+        if (arguments[1] === "Purchase" && typeof arguments[2].order_id === "undefined") return;
+        n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+    };
+
+            
+           
+                if(!f._fbq) f._fbq=n;
+                n.push=n;
+                n.loaded=!0;
+                n.version='2.0';
+                n.queue=[];
+                t=b.createElement(e);
+                t.async=!0;
+                t.src=v;
+                s=b.getElementsByTagName(e)[0];
+                s.parentNode.insertBefore(t,s);
+            }(window, document,'script','https://connect.facebook.net/en_US/fbevents.js');
+
+            // Inicializa o Facebook Pixel e rastreia o evento InitiateCheckout
+            fbq('init', '849237046336907');
+            fbq('track', 'InitiateCheckout');
+
+            // Aguarda um breve momento antes de redirecionar (opcional)
+            setTimeout(function() {
+                window.open(agendarLink.href, '_blank');
+            }, 500);
+
+            // Prevenir o comportamento padrão do link
+            event.preventDefault();
+        });
+    }
+});
+</script>
+
+
+
+
+                
+
+
+            </main>
     <!--FOOTER-->
 
     <div class="services">
